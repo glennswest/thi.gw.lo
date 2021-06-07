@@ -1,0 +1,21 @@
+# Disk DescriptorFile
+version=1
+encoding="UTF-8"
+CID=fffffffe
+parentCID=ffffffff
+createType="vmfs"
+
+# Extent description
+RW 335544320 VMFS "master-0.bm.lo-flat.vmdk"
+
+# The Disk Data Base 
+#DDB
+
+ddb.adapterType = "lsilogic"
+ddb.geometry.cylinders = "20886"
+ddb.geometry.heads = "255"
+ddb.geometry.sectors = "63"
+ddb.longContentID = "681c8e0a8a56a49de2800b7bfffffffe"
+ddb.thinProvisioned = "1"
+ddb.uuid = "60 00 C2 9c d7 96 1c ab-03 d0 0a 99 6f ef 43 fb"
+ddb.virtualHWVersion = "14"
