@@ -12,8 +12,8 @@ export TOKEN=`curl \
 --data-urlencode "refresh_token=${OFFLINE_ACCESS_TOKEN}" \
 https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token | \
 jq -r .access_token`
-curl -s -X POST \
+# Get cluster definition
+curl -s -X GET "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID/install-config" \
   --header "Content-Type: application/json" \
-  -H "Authorization: Bearer $TOKEN" \
-  "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID/actions/install"
-
+  -H "Authorization: Bearer $TOKEN" | awk '{gsub(/\\n/,"\n")}1' | sed -e 's/^"//' -e 's/"$//' > .installconfig
+cat .installconfig

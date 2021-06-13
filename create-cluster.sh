@@ -1,9 +1,5 @@
-./createvm.sh cp0.thi.gw.lo
-./createvm.sh cp1.thi.gw.lo
-./createvm.sh cp2.thi.gw.lo
-./createvm.sh node0.thi.gw.lo
-./createvm.sh node1.thi.gw.lo
-./createvm.sh node2.thi.gw.lo
+./poweroff-all-vms.sh
+./erase-all-vms.sh
 export OFFLINE_ACCESS_TOKEN=`cat .ocmapitoken.txt`
 export TOKEN=`curl \
 --silent \
@@ -27,6 +23,8 @@ CLUSTER_WORKER_COUNT="3"
 CLUSTER_MASTER_HT="Enabled"
 CLUSTER_MASTER_COUNT="3"
 CLUSTER_SSHKEY=`cat ~/.ssh/id_rsa.pub`
+export CLUSTER_INGRESS_VIP=`dig +short test.apps.$CLUSTER_NAME.$CLUSTER_DOMAIN`
+export CLUSTER_API_VIP=`dig +short api.$CLUSTER_NAME.$CLUSTER_DOMAIN`
 PULL_SECRET=$(cat pull-secret.txt | jq -R .)
 cat << EOF > ./deployment.json
 {
@@ -46,14 +44,24 @@ cat << EOF > ./deployment.json
 }
 EOF
 # Create Cluster
-CLUSTER_ID=`curl -s -X POST "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters" \
+curl -s -X POST "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters" \
   -d @./deployment.json \
   --header "Content-Type: application/json" \
   -H "Authorization: Bearer $TOKEN" \
-  | jq -r '.id'`
+  > .clusterresult
+CLUSTER_ID=`cat .clusterresult | jq -r '.id'`
 echo $CLUSTER_ID > .clusterid
 echo "Wait for cluster to get created"
 sleep 20
+echo "Update installconfig for OVN and VIP IPs"
+cp installconfig.yaml .installconfig-new
+yq e '.platform.baremetal.apiVIP = env(CLUSTER_API_VIP)' -i .installconfig-new
+yq e '.platform.baremetal.ingressVIP = env(CLUSTER_INGRESS_VIP)' -i .installconfig-new
+cat .installconfig-new | yq eval --tojson --indent 0  | sed 's/"/\\"/g' | awk '{ print "\""$0"\""}' > .installconfig-string
+curl -s -X PATCH "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID/install-config" \
+  --header "Content-Type: application/json" \
+  -H "Authorization: Bearer $TOKEN" -T .installconfig-string
+
 echo "Request ISO"
 cat << EOF > ./iso-params.json
 {
@@ -75,3 +83,24 @@ curl \
   -o discovery_image_thi.iso
 ssh root@esxi.gw.lo "rm /vmfs/volumes/datastore1/iso/discovery_image_thi.iso"
 scp discovery_image_thi.iso root@esxi.gw.lo:/vmfs/volumes/datastore1/iso/discovery_image_thi.iso
+echo "Power On Nodes"
+./poweron-vm.sh cp0.thi.gw.lo
+./poweron-vm.sh cp1.thi.gw.lo
+./poweron-vm.sh cp2.thi.gw.lo
+echo "Wait for control plane nodes to register"
+./waitfornodes.sh 3
+echo "Power on workers"
+./poweron-vm.sh node0.thi.gw.lo
+./poweron-vm.sh node1.thi.gw.lo
+./poweron-vm.sh node2.thi.gw.lo
+echo "Wait for Nodes to register"
+./waitfornodes.sh 6
+echo "Nodes Ready"
+echo "Wait for cluster to sync before install"
+sleep 120
+curl -s -X POST \
+  --header "Content-Type: application/json" \
+  -H "Authorization: Bearer $TOKEN" \
+  "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID/actions/install"
+
+
