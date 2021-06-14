@@ -1,0 +1,266 @@
+2021-06-14T14:11:19.653Z	Registered cluster \"thi\"
+2021-06-14T14:11:19.713Z	Successfully registered cluster thi with id 80cbc8ce-d6e7-4191-9d0d-b9046cac6888
+2021-06-14T14:11:26.762Z	Updated status of cluster thi to pending-for-input
+2021-06-14T14:11:41.518Z	Custom install config was applied to the cluster
+2021-06-14T14:11:41.739Z	Cluster validation 'api-vip-defined' is now fixed
+2021-06-14T14:11:46.106Z	Generated image (Image type is \"full-iso\", SSH public key is set)
+2021-06-14T14:12:06.526Z	Started image download (image type is \"full-iso\")
+2021-06-14T14:13:51.050Z	Host 674f4d56-eb4f-aa74-8dda-a8e30bb3b29f: registered to cluster
+2021-06-14T14:13:54.754Z	Host cp2.thi.gw.lo: updated status from \"discovering\" to \"pending-for-input\" (Waiting for user input: Host couldn't synchronize with any NTP server ; Machine Network CIDR is undefined; the Machine Network CIDR can be defined by setting either the API or Ingress virtual IPs)
+2021-06-14T14:13:56.262Z	Host fb754d56-864c-570a-d164-b3b3897415ff: registered to cluster
+2021-06-14T14:13:56.753Z	Cluster validation 'all-hosts-are-ready-to-install' that used to succeed is now failing
+2021-06-14T14:14:00.937Z	Host 407b4d56-d0f2-599d-9025-21e03a2a12dd: registered to cluster
+2021-06-14T14:14:02.945Z	Host cp1.thi.gw.lo: updated status from \"discovering\" to \"insufficient\" (Host cannot be installed due to following failing validation(s): Host couldn't synchronize with any NTP server ; No connectivity to the majority of hosts in the cluster)
+2021-06-14T14:14:02.949Z	Host cp2.thi.gw.lo: validation 'machine-cidr-defined' is now fixed
+2021-06-14T14:14:02.962Z	Host cp2.thi.gw.lo: updated status from \"pending-for-input\" to \"insufficient\" (Host cannot be installed due to following failing validation(s): Host couldn't synchronize with any NTP server ; No connectivity to the majority of hosts in the cluster)
+2021-06-14T14:14:02.976Z	Host cp0.thi.gw.lo: updated status from \"discovering\" to \"insufficient\" (Host cannot be installed due to following failing validation(s): Host couldn't synchronize with any NTP server ; No connectivity to the majority of hosts in the cluster)
+2021-06-14T14:14:06.829Z	Cluster validation 'api-vip-valid' is now fixed
+2021-06-14T14:14:06.833Z	Cluster validation 'ingress-vip-valid' is now fixed
+2021-06-14T14:14:06.836Z	Cluster validation 'machine-cidr-defined' is now fixed
+2021-06-14T14:14:06.840Z	Cluster validation 'machine-cidr-equals-to-calculated-cidr' is now fixed
+2021-06-14T14:14:06.844Z	Cluster validation 'sufficient-masters-count' is now fixed
+2021-06-14T14:14:06.945Z	Updated status of cluster thi to insufficient
+2021-06-14T14:15:01.415Z	Host 5f604d56-577f-23ee-c4a9-9562c47387b5: registered to cluster
+2021-06-14T14:15:07.850Z	Cluster validation 'sufficient-masters-count' that used to succeed is now failing
+2021-06-14T14:15:09.845Z	Host node2.thi.gw.lo: updated status from \"discovering\" to \"insufficient\" (Host cannot be installed due to following failing validation(s): Host couldn't synchronize with any NTP server ; No connectivity to the majority of hosts in the cluster)
+2021-06-14T14:15:09.849Z	Host cp2.thi.gw.lo: validation 'ntp-synced' is now fixed
+2021-06-14T14:15:09.863Z	Host cp0.thi.gw.lo: validation 'ntp-synced' is now fixed
+2021-06-14T14:15:09.879Z	Host cp1.thi.gw.lo: validation 'ntp-synced' is now fixed
+2021-06-14T14:15:11.195Z	Host 61294d56-55e1-deb3-ad6a-6c6c14df6419: registered to cluster
+2021-06-14T14:15:14.591Z	Host 7df54d56-51a6-5f00-1e4f-d0c8f402e940: registered to cluster
+2021-06-14T14:15:14.759Z	Host node1.thi.gw.lo: updated status from \"discovering\" to \"insufficient\" (Host cannot be installed due to following failing validation(s): Host couldn't synchronize with any NTP server ; No connectivity to the majority of hosts in the cluster)
+2021-06-14T14:15:16.749Z	Cluster validation 'sufficient-masters-count' is now fixed
+2021-06-14T14:15:22.838Z	Host node0.thi.gw.lo: validation 'has-inventory' is now fixed
+2021-06-14T14:15:22.852Z	Host node0.thi.gw.lo: updated status from \"discovering\" to \"insufficient\" (Host cannot be installed due to following failing validation(s): Host couldn't synchronize with any NTP server ; No connectivity to the majority of hosts in the cluster)
+2021-06-14T14:15:22.857Z	Host cp2.thi.gw.lo: validation 'belongs-to-majority-group' is now fixed
+2021-06-14T14:15:22.871Z	Host cp2.thi.gw.lo: updated status from \"insufficient\" to \"known\" (Host is ready to be installed)
+2021-06-14T14:15:22.875Z	Host cp1.thi.gw.lo: validation 'belongs-to-majority-group' is now fixed
+2021-06-14T14:15:22.891Z	Host cp1.thi.gw.lo: updated status from \"insufficient\" to \"known\" (Host is ready to be installed)
+2021-06-14T14:15:22.897Z	Host cp0.thi.gw.lo: validation 'belongs-to-majority-group' is now fixed
+2021-06-14T14:15:22.911Z	Host cp0.thi.gw.lo: updated status from \"insufficient\" to \"known\" (Host is ready to be installed)
+2021-06-14T14:16:10.760Z	Host node2.thi.gw.lo: validation 'ntp-synced' is now fixed
+2021-06-14T14:16:18.757Z	Host node2.thi.gw.lo: validation 'belongs-to-majority-group' is now fixed
+2021-06-14T14:16:18.771Z	Host node2.thi.gw.lo: updated status from \"insufficient\" to \"known\" (Host is ready to be installed)
+2021-06-14T14:16:18.776Z	Host node0.thi.gw.lo: validation 'ntp-synced' is now fixed
+2021-06-14T14:16:26.767Z	Host node1.thi.gw.lo: validation 'ntp-synced' is now fixed
+2021-06-14T14:16:34.758Z	Host node1.thi.gw.lo: validation 'belongs-to-majority-group' is now fixed
+2021-06-14T14:16:34.773Z	Host node1.thi.gw.lo: updated status from \"insufficient\" to \"known\" (Host is ready to be installed)
+2021-06-14T14:16:34.777Z	Host node0.thi.gw.lo: validation 'belongs-to-majority-group' is now fixed
+2021-06-14T14:16:34.794Z	Host node0.thi.gw.lo: updated status from \"insufficient\" to \"known\" (Host is ready to be installed)
+2021-06-14T14:16:36.832Z	Cluster validation 'all-hosts-are-ready-to-install' is now fixed
+2021-06-14T14:16:36.855Z	Updated status of cluster thi to ready
+2021-06-14T14:17:19.647Z	Host cp0.thi.gw.lo: set as bootstrap
+2021-06-14T14:17:22.763Z	Host cp2.thi.gw.lo: updated status from \"known\" to \"preparing-for-installation\" (Host is preparing for installation)
+2021-06-14T14:17:22.773Z	Host cp1.thi.gw.lo: updated status from \"known\" to \"preparing-for-installation\" (Host is preparing for installation)
+2021-06-14T14:17:22.782Z	Host node0.thi.gw.lo: updated status from \"known\" to \"preparing-for-installation\" (Host is preparing for installation)
+2021-06-14T14:17:22.791Z	Host node2.thi.gw.lo: updated status from \"known\" to \"preparing-for-installation\" (Host is preparing for installation)
+2021-06-14T14:17:22.800Z	Host node1.thi.gw.lo: updated status from \"known\" to \"preparing-for-installation\" (Host is preparing for installation)
+2021-06-14T14:17:22.809Z	Host cp0.thi.gw.lo: updated status from \"known\" to \"preparing-for-installation\" (Host is preparing for installation)
+2021-06-14T14:17:38.341Z	Cluster was prepared successfully for installation
+2021-06-14T14:19:08.149Z	Host node1.thi.gw.lo: New image status registry.redhat.io/rhai-tech-preview/assisted-installer-rhel8:v1.0.0-54. result: success. time: 16.402504 seconds; size: 310005440.000000 bytes; download rate: 18.899885 MBps
+2021-06-14T14:19:08.155Z	Host node1.thi.gw.lo: New image status quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4780d931f9287b49fc1125caaa75d6cb92f722b6cc02dc6e562319942a5165a1. result: success. time: 22.158576 seconds; size: 632586616.000000 bytes; download rate: 28.548162 MBps
+2021-06-14T14:19:08.160Z	Host node1.thi.gw.lo: New image status quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:71aa49e1d9d37be83436db4770189f0c975ed4aedc5bf68f921c39307c3415be. result: success. time: 8.953215 seconds; size: 549885017.000000 bytes; download rate: 61.417604 MBps
+2021-06-14T14:19:11.438Z	Host cp1.thi.gw.lo: New image status registry.redhat.io/rhai-tech-preview/assisted-installer-rhel8:v1.0.0-54. result: success. time: 12.258254 seconds; size: 310005440.000000 bytes; download rate: 25.289526 MBps
+2021-06-14T14:19:11.449Z	Host cp1.thi.gw.lo: New image status quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4780d931f9287b49fc1125caaa75d6cb92f722b6cc02dc6e562319942a5165a1. result: success. time: 46.448609 seconds; size: 632586616.000000 bytes; download rate: 13.619065 MBps
+2021-06-14T14:19:11.458Z	Host cp1.thi.gw.lo: New image status quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:71aa49e1d9d37be83436db4770189f0c975ed4aedc5bf68f921c39307c3415be. result: success. time: 12.014552 seconds; size: 549885017.000000 bytes; download rate: 45.768248 MBps
+2021-06-14T14:19:11.500Z	Host cp0.thi.gw.lo: New image status registry.redhat.io/rhai-tech-preview/assisted-installer-rhel8:v1.0.0-54. result: success. time: 13.326267 seconds; size: 310005440.000000 bytes; download rate: 23.262737 MBps
+2021-06-14T14:19:11.505Z	Host cp0.thi.gw.lo: New image status quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4780d931f9287b49fc1125caaa75d6cb92f722b6cc02dc6e562319942a5165a1. result: success. time: 39.841258 seconds; size: 632586616.000000 bytes; download rate: 15.877677 MBps
+2021-06-14T14:19:11.511Z	Host cp0.thi.gw.lo: New image status quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:71aa49e1d9d37be83436db4770189f0c975ed4aedc5bf68f921c39307c3415be. result: success. time: 11.612517 seconds; size: 549885017.000000 bytes; download rate: 47.352785 MBps
+2021-06-14T14:19:14.772Z	Host node1.thi.gw.lo: updated status from \"preparing-for-installation\" to \"preparing-successful\" (Host finished successfully to prepare for installation)
+2021-06-14T14:19:14.782Z	Host cp1.thi.gw.lo: updated status from \"preparing-for-installation\" to \"preparing-successful\" (Host finished successfully to prepare for installation)
+2021-06-14T14:19:14.791Z	Host cp0.thi.gw.lo: updated status from \"preparing-for-installation\" to \"preparing-successful\" (Host finished successfully to prepare for installation)
+2021-06-14T14:19:25.837Z	Host node2.thi.gw.lo: New image status registry.redhat.io/rhai-tech-preview/assisted-installer-rhel8:v1.0.0-54. result: success. time: 51.133762 seconds; size: 310005440.000000 bytes; download rate: 6.062637 MBps
+2021-06-14T14:19:25.848Z	Host node2.thi.gw.lo: New image status quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4780d931f9287b49fc1125caaa75d6cb92f722b6cc02dc6e562319942a5165a1. result: success. time: 21.407267 seconds; size: 632586616.000000 bytes; download rate: 29.550088 MBps
+2021-06-14T14:19:25.858Z	Host node2.thi.gw.lo: New image status quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:71aa49e1d9d37be83436db4770189f0c975ed4aedc5bf68f921c39307c3415be. result: success. time: 5.993215 seconds; size: 549885017.000000 bytes; download rate: 91.751266 MBps
+2021-06-14T14:19:29.205Z	Host cp2.thi.gw.lo: New image status registry.redhat.io/rhai-tech-preview/assisted-installer-rhel8:v1.0.0-54. result: success. time: 58.684915 seconds; size: 310005440.000000 bytes; download rate: 5.282540 MBps
+2021-06-14T14:19:29.212Z	Host cp2.thi.gw.lo: New image status quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4780d931f9287b49fc1125caaa75d6cb92f722b6cc02dc6e562319942a5165a1. result: success. time: 28.488353 seconds; size: 632586616.000000 bytes; download rate: 22.205096 MBps
+2021-06-14T14:19:29.219Z	Host cp2.thi.gw.lo: New image status quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:71aa49e1d9d37be83436db4770189f0c975ed4aedc5bf68f921c39307c3415be. result: success. time: 2.992187 seconds; size: 549885017.000000 bytes; download rate: 183.773587 MBps
+2021-06-14T14:19:30.776Z	Host node2.thi.gw.lo: updated status from \"preparing-for-installation\" to \"preparing-successful\" (Host finished successfully to prepare for installation)
+2021-06-14T14:19:30.785Z	Host cp2.thi.gw.lo: updated status from \"preparing-for-installation\" to \"preparing-successful\" (Host finished successfully to prepare for installation)
+2021-06-14T14:19:32.065Z	Host node0.thi.gw.lo: New image status registry.redhat.io/rhai-tech-preview/assisted-installer-rhel8:v1.0.0-54. result: success. time: 37.095572 seconds; size: 310005440.000000 bytes; download rate: 8.356939 MBps
+2021-06-14T14:19:32.075Z	Host node0.thi.gw.lo: New image status quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:4780d931f9287b49fc1125caaa75d6cb92f722b6cc02dc6e562319942a5165a1. result: success. time: 32.734512 seconds; size: 632586616.000000 bytes; download rate: 19.324761 MBps
+2021-06-14T14:19:32.085Z	Host node0.thi.gw.lo: New image status quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:71aa49e1d9d37be83436db4770189f0c975ed4aedc5bf68f921c39307c3415be. result: success. time: 2.874318 seconds; size: 549885017.000000 bytes; download rate: 191.309704 MBps
+2021-06-14T14:19:38.852Z	Host node0.thi.gw.lo: updated status from \"preparing-for-installation\" to \"preparing-successful\" (Host finished successfully to prepare for installation)
+2021-06-14T14:19:46.937Z	Updated status of cluster thi to installing
+2021-06-14T14:19:54.861Z	Host node2.thi.gw.lo: updated status from \"preparing-successful\" to \"installing\" (Installation is in progress)
+2021-06-14T14:19:54.872Z	Host cp2.thi.gw.lo: updated status from \"preparing-successful\" to \"installing\" (Installation is in progress)
+2021-06-14T14:19:54.881Z	Host node0.thi.gw.lo: updated status from \"preparing-successful\" to \"installing\" (Installation is in progress)
+2021-06-14T14:19:54.891Z	Host node1.thi.gw.lo: updated status from \"preparing-successful\" to \"installing\" (Installation is in progress)
+2021-06-14T14:19:54.900Z	Host cp1.thi.gw.lo: updated status from \"preparing-successful\" to \"installing\" (Installation is in progress)
+2021-06-14T14:19:54.909Z	Host cp0.thi.gw.lo: updated status from \"preparing-successful\" to \"installing\" (Installation is in progress)
+2021-06-14T14:20:07.634Z	Host cp1.thi.gw.lo: updated status from \"installing\" to \"installing-in-progress\" (Starting installation)
+2021-06-14T14:20:07.639Z	Host cp1.thi.gw.lo: reached installation stage Starting installation: master
+2021-06-14T14:20:07.748Z	Host cp1.thi.gw.lo: reached installation stage Installing: master
+2021-06-14T14:20:07.910Z	Host cp2.thi.gw.lo: updated status from \"installing\" to \"installing-in-progress\" (Starting installation)
+2021-06-14T14:20:07.918Z	Host cp2.thi.gw.lo: reached installation stage Starting installation: master
+2021-06-14T14:20:07.947Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk
+2021-06-14T14:20:08.027Z	Host cp2.thi.gw.lo: reached installation stage Installing: master
+2021-06-14T14:20:08.305Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk
+2021-06-14T14:20:09.764Z	Host node2.thi.gw.lo: updated status from \"installing\" to \"installing-in-progress\" (Starting installation)
+2021-06-14T14:20:09.769Z	Host node2.thi.gw.lo: reached installation stage Starting installation: worker
+2021-06-14T14:20:09.880Z	Host node2.thi.gw.lo: reached installation stage Installing: worker
+2021-06-14T14:20:10.030Z	Host cp0.thi.gw.lo: updated status from \"installing\" to \"installing-in-progress\" (Starting installation)
+2021-06-14T14:20:10.035Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk
+2021-06-14T14:20:10.036Z	Host cp0.thi.gw.lo: reached installation stage Starting installation: bootstrap
+2021-06-14T14:20:10.071Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 8%
+2021-06-14T14:20:10.130Z	Host cp0.thi.gw.lo: reached installation stage Installing: master
+2021-06-14T14:20:10.442Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk
+2021-06-14T14:20:10.550Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 7%
+2021-06-14T14:20:11.071Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 14%
+2021-06-14T14:20:11.541Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 12%
+2021-06-14T14:20:12.154Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 7%
+2021-06-14T14:20:12.538Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 17%
+2021-06-14T14:20:12.564Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 6%
+2021-06-14T14:20:13.081Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 23%
+2021-06-14T14:20:13.152Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 13%
+2021-06-14T14:20:13.542Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 22%
+2021-06-14T14:20:13.567Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 13%
+2021-06-14T14:20:14.081Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 29%
+2021-06-14T14:20:14.156Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 18%
+2021-06-14T14:20:14.542Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 27%
+2021-06-14T14:20:15.152Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 23%
+2021-06-14T14:20:15.542Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 32%
+2021-06-14T14:20:15.567Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 22%
+2021-06-14T14:20:16.074Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 37%
+2021-06-14T14:20:16.155Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 28%
+2021-06-14T14:20:16.565Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 27%
+2021-06-14T14:20:17.148Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 33%
+2021-06-14T14:20:17.542Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 39%
+2021-06-14T14:20:17.567Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 32%
+2021-06-14T14:20:18.075Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 42%
+2021-06-14T14:20:19.159Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 40%
+2021-06-14T14:20:19.549Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 46%
+2021-06-14T14:20:19.565Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 40%
+2021-06-14T14:20:20.070Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 49%
+2021-06-14T14:20:21.158Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 47%
+2021-06-14T14:20:21.544Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 53%
+2021-06-14T14:20:21.562Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 47%
+2021-06-14T14:20:22.077Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 56%
+2021-06-14T14:20:22.565Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 52%
+2021-06-14T14:20:23.157Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 54%
+2021-06-14T14:20:23.307Z	Host node1.thi.gw.lo: updated status from \"installing\" to \"installing-in-progress\" (Starting installation)
+2021-06-14T14:20:23.312Z	Host node1.thi.gw.lo: reached installation stage Starting installation: worker
+2021-06-14T14:20:23.470Z	Host node1.thi.gw.lo: reached installation stage Installing: worker
+2021-06-14T14:20:23.557Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 60%
+2021-06-14T14:20:23.628Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk
+2021-06-14T14:20:24.077Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 62%
+2021-06-14T14:20:24.393Z	Host node0.thi.gw.lo: updated status from \"installing\" to \"installing-in-progress\" (Starting installation)
+2021-06-14T14:20:24.401Z	Host node0.thi.gw.lo: reached installation stage Starting installation: worker
+2021-06-14T14:20:24.505Z	Host node0.thi.gw.lo: reached installation stage Installing: worker
+2021-06-14T14:20:24.567Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 58%
+2021-06-14T14:20:24.664Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk
+2021-06-14T14:20:25.163Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 60%
+2021-06-14T14:20:25.562Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 65%
+2021-06-14T14:20:26.570Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 65%
+2021-06-14T14:20:27.073Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 69%
+2021-06-14T14:20:27.160Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 66%
+2021-06-14T14:20:27.562Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 71%
+2021-06-14T14:20:28.574Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 70%
+2021-06-14T14:20:29.079Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 74%
+2021-06-14T14:20:29.154Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 72%
+2021-06-14T14:20:30.566Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 77%
+2021-06-14T14:20:30.571Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 75%
+2021-06-14T14:20:32.080Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 82%
+2021-06-14T14:20:32.163Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 78%
+2021-06-14T14:20:32.547Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 83%
+2021-06-14T14:20:32.582Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 80%
+2021-06-14T14:20:34.164Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 83%
+2021-06-14T14:20:34.545Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 6%
+2021-06-14T14:20:34.593Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 6%
+2021-06-14T14:20:35.095Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 87%
+2021-06-14T14:20:35.550Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 89%
+2021-06-14T14:20:36.546Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 14%
+2021-06-14T14:20:36.579Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 15%
+2021-06-14T14:20:36.581Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 86%
+2021-06-14T14:20:37.164Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 88%
+2021-06-14T14:20:37.548Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 19%
+2021-06-14T14:20:38.101Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 92%
+2021-06-14T14:20:38.550Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 24%
+2021-06-14T14:20:38.582Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 24%
+2021-06-14T14:20:39.563Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 29%
+2021-06-14T14:20:39.582Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 29%
+2021-06-14T14:20:40.559Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 34%
+2021-06-14T14:20:40.581Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 34%
+2021-06-14T14:20:42.173Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 93%
+2021-06-14T14:20:42.553Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 40%
+2021-06-14T14:20:42.592Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 41%
+2021-06-14T14:20:43.633Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 94%
+2021-06-14T14:20:44.554Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 47%
+2021-06-14T14:20:44.585Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 47%
+2021-06-14T14:20:44.648Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 91%
+2021-06-14T14:20:46.561Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 53%
+2021-06-14T14:20:46.588Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 53%
+2021-06-14T14:20:48.566Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 60%
+2021-06-14T14:20:48.606Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 60%
+2021-06-14T14:20:50.558Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 65%
+2021-06-14T14:20:50.585Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 65%
+2021-06-14T14:20:52.556Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 70%
+2021-06-14T14:20:53.264Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 98%
+2021-06-14T14:20:53.598Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 70%
+2021-06-14T14:21:05.716Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 75%
+2021-06-14T14:21:06.834Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 75%
+2021-06-14T14:21:16.224Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 97%
+2021-06-14T14:21:17.796Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 80%
+2021-06-14T14:21:18.647Z	Host node2.thi.gw.lo: reached installation stage Writing image to disk: 100%
+2021-06-14T14:21:26.541Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 96%
+2021-06-14T14:21:26.857Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 85%
+2021-06-14T14:21:36.046Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 99%
+2021-06-14T14:21:37.761Z	Host cp2.thi.gw.lo: reached installation stage Writing image to disk: 100%
+2021-06-14T14:21:47.183Z	Host cp1.thi.gw.lo: reached installation stage Writing image to disk: 100%
+2021-06-14T14:22:07.203Z	Host cp0.thi.gw.lo: reached installation stage Writing image to disk: 100%
+2021-06-14T14:22:11.064Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 80%
+2021-06-14T14:22:15.337Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 90%
+2021-06-14T14:22:20.028Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 85%
+2021-06-14T14:22:22.873Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 95%
+2021-06-14T14:22:27.085Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 90%
+2021-06-14T14:22:34.782Z	Host node0.thi.gw.lo: reached installation stage Writing image to disk: 100%
+2021-06-14T14:22:39.184Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 95%
+2021-06-14T14:22:45.808Z	Host node1.thi.gw.lo: reached installation stage Writing image to disk: 100%
+2021-06-14T14:23:14.689Z	Host cp1.thi.gw.lo: reached installation stage Rebooting
+2021-06-14T14:23:20.360Z	Host cp0.thi.gw.lo: reached installation stage Waiting for control plane
+2021-06-14T14:23:25.797Z	Host cp2.thi.gw.lo: reached installation stage Rebooting
+2021-06-14T14:23:43.721Z	Host node1.thi.gw.lo: reached installation stage Rebooting
+2021-06-14T14:23:49.593Z	Host node0.thi.gw.lo: reached installation stage Rebooting
+2021-06-14T14:23:50.358Z	Host node2.thi.gw.lo: reached installation stage Rebooting
+2021-06-14T14:24:41.541Z	Host cp1.thi.gw.lo: reached installation stage Configuring
+2021-06-14T14:25:10.150Z	Host cp2.thi.gw.lo: reached installation stage Configuring
+2021-06-14T14:25:10.249Z	Host node2.thi.gw.lo: reached installation stage Waiting for ignition
+2021-06-14T14:25:10.357Z	Host node0.thi.gw.lo: reached installation stage Waiting for ignition
+2021-06-14T14:25:10.469Z	Host node1.thi.gw.lo: reached installation stage Waiting for ignition
+2021-06-14T14:38:07.263Z	Host cp1.thi.gw.lo: reached installation stage Joined
+2021-06-14T14:38:12.333Z	Host cp2.thi.gw.lo: reached installation stage Joined
+2021-06-14T14:38:12.401Z	Host cp0.thi.gw.lo: reached installation stage Waiting for bootkube
+2021-06-14T14:40:56.125Z	Host cp1.thi.gw.lo: updated status from \"installing-in-progress\" to \"installed\" (Done)
+2021-06-14T14:40:56.147Z	Host cp1.thi.gw.lo: reached installation stage Done
+2021-06-14T14:40:56.219Z	Host cp2.thi.gw.lo: updated status from \"installing-in-progress\" to \"installed\" (Done)
+2021-06-14T14:40:56.242Z	Host cp2.thi.gw.lo: reached installation stage Done
+2021-06-14T14:45:38.480Z	Host cp0.thi.gw.lo: reached installation stage Waiting for controller: waiting for controller pod ready event
+2021-06-14T14:45:45.474Z	Host cp0.thi.gw.lo: reached installation stage Rebooting
+2021-06-14T14:47:25.637Z	Host cp0.thi.gw.lo: reached installation stage Configuring
+2021-06-14T14:54:25.652Z	Host cp0.thi.gw.lo: reached installation stage Joined
+2021-06-14T14:56:25.631Z	Host cp0.thi.gw.lo: updated status from \"installing-in-progress\" to \"installed\" (Done)
+2021-06-14T14:56:25.661Z	Host cp0.thi.gw.lo: reached installation stage Done
+2021-06-14T14:58:25.811Z	Host node2.thi.gw.lo: reached installation stage Configuring
+2021-06-14T14:58:25.908Z	Host node1.thi.gw.lo: reached installation stage Configuring
+2021-06-14T14:58:26.008Z	Host node0.thi.gw.lo: reached installation stage Configuring
+2021-06-14T15:09:55.792Z	Host node0.thi.gw.lo: reached installation stage Joined
+2021-06-14T15:09:55.979Z	Host node1.thi.gw.lo: reached installation stage Joined
+2021-06-14T15:10:26.839Z	Host node2.thi.gw.lo: reached installation stage Joined
+2021-06-14T15:11:26.094Z	Host node0.thi.gw.lo: updated status from \"installing-in-progress\" to \"installed\" (Done)
+2021-06-14T15:11:26.125Z	Host node0.thi.gw.lo: reached installation stage Done
+2021-06-14T15:11:26.837Z	Updated status of cluster thi to finalizing
+2021-06-14T15:11:57.931Z	Host node1.thi.gw.lo: updated status from \"installing-in-progress\" to \"installed\" (Done)
+2021-06-14T15:11:57.963Z	Host node1.thi.gw.lo: reached installation stage Done
+2021-06-14T15:12:56.684Z	Cluster version status: progressing message: Unable to apply 4.7.13: some cluster operators have not yet rolled out
+2021-06-14T15:12:58.108Z	Host node2.thi.gw.lo: updated status from \"installing-in-progress\" to \"installed\" (Done)
+2021-06-14T15:12:58.128Z	Host node2.thi.gw.lo: reached installation stage Done
+2021-06-14T15:18:55.777Z	Cluster version status: progressing message: Working towards 4.7.13: 37 of 669 done (5% complete)
+2021-06-14T15:19:55.771Z	Cluster version status: progressing message: Working towards 4.7.13: 649 of 669 done (97% complete)
+2021-06-14T15:21:55.763Z	Cluster version status: progressing message: Unable to apply 4.7.13: some cluster operators have not yet rolled out
+2021-06-14T15:23:55.766Z	Cluster version status: progressing message: Working towards 4.7.13: 663 of 669 done (99% complete)
+2021-06-14T15:25:55.752Z	Cluster version status: progressing message: Unable to apply 4.7.13: the cluster operator authentication has not yet successfully rolled out
+2021-06-14T15:29:45.848Z	Host can register only in one of the following states: [insufficient ready pending-for-input adding-hosts]
+2021-06-14T15:32:55.773Z	Cluster version status: available message: Done applying 4.7.13
+2021-06-14T15:34:02.721Z	Host can register only in one of the following states: [insufficient ready pending-for-input adding-hosts]
+2021-06-14T15:45:47.172Z	Successfully finished installing cluster thi
+2021-06-14T15:49:03.335Z	Cannot add host to a cluster that is already installed, please use the day2 cluster option
