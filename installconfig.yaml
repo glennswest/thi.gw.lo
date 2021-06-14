@@ -1,5 +1,5 @@
 networking:
-  networkType: OVN-Kubernetes
+  networkType: OVNKubernetes
 platform:
   baremetal:
     apiVIP: 192.168.1.216

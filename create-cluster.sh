@@ -1,3 +1,4 @@
+./delete-cluster.sh
 ./poweroff-all-vms.sh
 ./erase-all-vms.sh
 export OFFLINE_ACCESS_TOKEN=`cat .ocmapitoken.txt`
@@ -8,11 +9,10 @@ export TOKEN=`curl \
 --data-urlencode "refresh_token=${OFFLINE_ACCESS_TOKEN}" \
 https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token | \
 jq -r .access_token`
-echo "TOKEN: "
 echo $TOKEN > .token
 ASSISTED_SERVICE_API="api.openshift.com"
-CLUSTER_VERSION="4.8"
-CLUSTER_IMAGE="quay.io/openshift-release-dev/ocp-release:4.8.0-fc.3-x86_64"
+CLUSTER_VERSION="4.7"
+#CLUSTER_IMAGE="quay.io/openshift-release-dev/ocp-release:4.8.0-fc.3-x86_64"
 CLUSTER_NAME="thi"
 CLUSTER_DOMAIN="gw.lo"
 CLUSTER_CIDR_NET="10.128.0.0/14"
@@ -31,9 +31,11 @@ cat << EOF > ./deployment.json
   "kind": "Cluster",
   "name": "$CLUSTER_NAME",
   "openshift_version": "$CLUSTER_VERSION",
-  "ocp_release_image": "$CLUSTER_IMAGE",
   "base_dns_domain": "$CLUSTER_DOMAIN",
   "hyperthreading": "all",
+  "vip_dhcp_allocation": false,
+  "ingress_vip": "$CLUSTER_INGRESS_VIP",
+  "api_vip":  "$CLUSTER_API_VIP",
   "cluster_network_cidr": "$CLUSTER_CIDR_NET",
   "cluster_network_host_prefix": $CLUSTER_HOST_PFX,
   "service_network_cidr": "$CLUSTER_CIDR_SVC",
@@ -53,14 +55,29 @@ CLUSTER_ID=`cat .clusterresult | jq -r '.id'`
 echo $CLUSTER_ID > .clusterid
 echo "Wait for cluster to get created"
 sleep 20
-echo "Update installconfig for OVN and VIP IPs"
+echo "Update installconfig for OVN "
 cp installconfig.yaml .installconfig-new
-yq e '.platform.baremetal.apiVIP = env(CLUSTER_API_VIP)' -i .installconfig-new
-yq e '.platform.baremetal.ingressVIP = env(CLUSTER_INGRESS_VIP)' -i .installconfig-new
+#yq e '.platform.baremetal.apiVIP = env(CLUSTER_API_VIP)' -i .installconfig-new
+#yq e '.platform.baremetal.ingressVIP = env(CLUSTER_INGRESS_VIP)' -i .installconfig-new
+#yq e '.networking.apiVIP = env(CLUSTER_API_VIP)' -i .installconfig-new
+#yq e '.networking.ingressVIP = env(CLUSTER_INGRESS_VIP)' -i .installconfig-new
 cat .installconfig-new | yq eval --tojson --indent 0  | sed 's/"/\\"/g' | awk '{ print "\""$0"\""}' > .installconfig-string
 curl -s -X PATCH "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID/install-config" \
   --header "Content-Type: application/json" \
   -H "Authorization: Bearer $TOKEN" -T .installconfig-string
+
+echo "Update VIPs"
+cat << EOF > cluster-update-params.json
+{ 
+  "api_vip": "$CLUSTER_API_VIP",
+  "ingress_vip": "$CLUSTER_INGRESS_VIP"
+}
+EOF
+curl -s -X PATCH "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID" \
+  -d @./cluster-update-params.json \
+  --header "Content-Type: application/json" \
+  -H "Authorization: Bearer $TOKEN" \
+  > .clusterupdateresult
 
 echo "Request ISO"
 cat << EOF > ./iso-params.json
