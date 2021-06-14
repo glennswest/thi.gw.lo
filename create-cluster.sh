@@ -11,7 +11,7 @@ https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
 jq -r .access_token`
 echo $TOKEN > .token
 ASSISTED_SERVICE_API="api.openshift.com"
-CLUSTER_VERSION="4.7"
+CLUSTER_VERSION="4.7.13"
 #CLUSTER_IMAGE="quay.io/openshift-release-dev/ocp-release:4.8.0-fc.3-x86_64"
 CLUSTER_NAME="thi"
 CLUSTER_DOMAIN="gw.lo"
@@ -114,6 +114,6 @@ sleep 120
 curl -s -X POST \
   --header "Content-Type: application/json" \
   -H "Authorization: Bearer $TOKEN" \
-  "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID/actions/install"
+  "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID/actions/install" > .install-result
 
 
