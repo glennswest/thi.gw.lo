@@ -55,16 +55,12 @@ CLUSTER_ID=`cat .clusterresult | jq -r '.id'`
 echo $CLUSTER_ID > .clusterid
 echo "Wait for cluster to get created"
 sleep 20
-echo "Update installconfig for OVN "
-cp installconfig.yaml .installconfig-new
-#yq e '.platform.baremetal.apiVIP = env(CLUSTER_API_VIP)' -i .installconfig-new
-#yq e '.platform.baremetal.ingressVIP = env(CLUSTER_INGRESS_VIP)' -i .installconfig-new
-#yq e '.networking.apiVIP = env(CLUSTER_API_VIP)' -i .installconfig-new
-#yq e '.networking.ingressVIP = env(CLUSTER_INGRESS_VIP)' -i .installconfig-new
-cat .installconfig-new | yq eval --tojson --indent 0  | sed 's/"/\\"/g' | awk '{ print "\""$0"\""}' > .installconfig-string
-curl -s -X PATCH "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID/install-config" \
-  --header "Content-Type: application/json" \
-  -H "Authorization: Bearer $TOKEN" -T .installconfig-string
+#echo "Update installconfig for OVN "
+#cp installconfig.yaml .installconfig-new
+#cat .installconfig-new | yq eval --tojson --indent 0  | sed 's/"/\\"/g' | awk '{ print "\""$0"\""}' > .installconfig-string
+#curl -s -X PATCH "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID/install-config" \
+#  --header "Content-Type: application/json" \
+#  -H "Authorization: Bearer $TOKEN" -T .installconfig-string
 
 echo "Update VIPs"
 cat << EOF > cluster-update-params.json
