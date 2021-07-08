@@ -9,6 +9,6 @@ jq -r .access_token`
 echo $TOKEN > .token
 export CLUSTER_ID=`cat .clusterid`
 ASSISTED_SERVICE_API="api.openshift.com"
-curl -s -X GET "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID/install-config" \
+curl -s -X GET "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID" \
   --header "Content-Type: application/json" \
   -H "Authorization: Bearer $TOKEN" | jq

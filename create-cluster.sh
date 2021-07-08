@@ -11,7 +11,7 @@ https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
 jq -r .access_token`
 echo $TOKEN > .token
 ASSISTED_SERVICE_API="api.openshift.com"
-CLUSTER_VERSION="4.7.13"
+CLUSTER_VERSION="4.6.17"
 #CLUSTER_IMAGE="quay.io/openshift-release-dev/ocp-release:4.8.0-fc.3-x86_64"
 CLUSTER_NAME="thi"
 CLUSTER_DOMAIN="gw.lo"
@@ -62,18 +62,6 @@ curl -s -X PATCH "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters
   --header "Content-Type: application/json" \
   -H "Authorization: Bearer $TOKEN" -T .installconfig-string
 
-echo "Update VIPs"
-cat << EOF > cluster-update-params.json
-{ 
-  "api_vip": "$CLUSTER_API_VIP",
-  "ingress_vip": "$CLUSTER_INGRESS_VIP"
-}
-EOF
-curl -s -X PATCH "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID" \
-  -d @./cluster-update-params.json \
-  --header "Content-Type: application/json" \
-  -H "Authorization: Bearer $TOKEN" \
-  > .clusterupdateresult
 
 echo "Request ISO"
 cat << EOF > ./iso-params.json
@@ -102,13 +90,67 @@ echo "Power On Nodes"
 ./poweron-vm.sh cp2.thi.gw.lo
 echo "Wait for control plane nodes to register"
 ./waitfornodes.sh 3
+sleep 30
 echo "Power on workers"
 ./poweron-vm.sh node0.thi.gw.lo
 ./poweron-vm.sh node1.thi.gw.lo
-./poweron-vm.sh node2.thi.gw.lo
+#./poweron-vm.sh node2.thi.gw.lo
 echo "Wait for Nodes to register"
-./waitfornodes.sh 6
+./waitfornodes.sh 5
+sleep 60
 echo "Nodes Ready"
+export TOKEN=`curl \
+--silent \
+--data-urlencode "grant_type=refresh_token" \
+--data-urlencode "client_id=cloud-services" \
+--data-urlencode "refresh_token=${OFFLINE_ACCESS_TOKEN}" \
+https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token | \
+jq -r .access_token`
+echo "Update VIPs"
+cat << EOF > cluster-update-params.json
+{ 
+  "api_vip": "$CLUSTER_API_VIP",
+  "ingress_vip": "$CLUSTER_INGRESS_VIP"
+}
+EOF
+curl -s -X PATCH "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID" \
+  -d @./cluster-update-params.json \
+  --header "Content-Type: application/json" \
+  -H "Authorization: Bearer $TOKEN" \
+  > .clusterupdateresult
+echo "Get Cluster Nodee"
+export TOKEN=`curl \
+--silent \
+--data-urlencode "grant_type=refresh_token" \
+--data-urlencode "client_id=cloud-services" \
+--data-urlencode "refresh_token=${OFFLINE_ACCESS_TOKEN}" \
+https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token | \
+jq -r .access_token`
+curl -s -X GET "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID" \
+  --header "Content-Type: application/json" \
+  -H "Authorization: Bearer $TOKEN" > .getcluster.json
+jq '.hosts[] | .requested_hostname + " " +  .role + " " + .id' < .getcluster.json > .nodes
+cat .nodes | tr -d '"' | grep cp > .masters
+cat .masters | while read line
+do
+   # do something with $line here
+   NODENAME=`echo $line | awk '{print $1}'`
+   NODEID=`echo $line | awk '{print $3}'`
+echo $NODEID
+cat << EOF > ./.patchnode.json
+{
+  "hosts_roles":[{"id": "$NODEID", "role": "master"}]
+}
+EOF
+cat .patchnode.json
+curl -s -X PATCH "https://$ASSISTED_SERVICE_API/api/assisted-install/v1/clusters/$CLUSTER_ID" \
+  --header "Content-Type: application/json" \
+  -H "Authorization: Bearer $TOKEN" -T .patchnode.json > .patchresult
+jq . < .patchresult
+
+done
+
+
 echo "Wait for cluster to sync before install"
 sleep 120
 curl -s -X POST \
